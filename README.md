@@ -7,6 +7,7 @@ DriverML is a free software tool.
 ## Installation
 tar –xzf DriverML_v1.0.0.tgz  
 cd DriverML_v1.0.0  
+tar -xzf training.tar.gz  
 chmod +x *.pl *.r *.sh
 
 ## Running
