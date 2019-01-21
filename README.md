@@ -55,4 +55,4 @@ The mutation file needs to be Detailed information about the MAF format could be
 ## Output
 The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.  
 ## Example
-nohup /AbsolutePath/DriverML_v1.0.0/run.driverml.sh -w /AbsolutePath/DriverML_v1.0.0 -i example/UVM.txt -f /AbsolutePath/GRCh38.fa -r /AbsolutePath/hg19.fa -c 1 -o UVM-summary.txt > UVM-nohup.out
+nohup /AbsolutePath/DriverML-master/run.driverml.sh -w /AbsolutePath/DriverML-master -i example/UVM.txt -f /AbsolutePath/GRCh38.fa -r /AbsolutePath/hg19.fa -c 1 -o UVM-summary.txt > UVM-nohup.out
