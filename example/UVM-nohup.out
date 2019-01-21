@@ -1,0 +1,195 @@
+Final cluster number is 1
+interpolation number is 21 
+invalid format of gene class in line 17712
+invalid format of gene class in line 17739
+invalid format of gene class in line 17858
+The number of genes which are in the input file but not in the characteristic file is 17
+interpolation number is 9 
+invalid format of gene class in line 17691
+invalid format of gene class in line 17696
+invalid format of gene class in line 17698
+invalid format of gene class in line 17765
+invalid format of gene class in line 17833
+invalid format of gene class in line 17847
+invalid format of gene class in line 17853
+invalid format of gene class in line 17868
+invalid format of gene class in line 17902
+invalid format of gene class in line 17916
+invalid format of gene class in line 17943
+invalid format of gene class in line 17946
+invalid format of gene class in line 17948
+invalid format of gene class in line 17961
+invalid format of gene class in line 17972
+invalid format of gene class in line 18014
+invalid format of gene class in line 18019
+invalid format of gene class in line 18026
+invalid format of gene class in line 18032
+invalid format of gene class in line 18039
+invalid format of gene class in line 18074
+invalid format of gene class in line 18099
+invalid format of gene class in line 18175
+invalid format of gene class in line 18179
+invalid format of gene class in line 18197
+invalid format of gene class in line 18198
+invalid format of gene class in line 18205
+invalid format of gene class in line 18251
+invalid format of gene class in line 18262
+invalid format of gene class in line 18302
+invalid format of gene class in line 18315
+invalid format of gene class in line 18330
+invalid format of gene class in line 18339
+invalid format of gene class in line 18353
+invalid format of gene class in line 18432
+invalid format of gene class in line 18489
+invalid format of gene class in line 18511
+invalid format of gene class in line 18560
+invalid format of gene class in line 18563
+invalid format of gene class in line 18574
+invalid format of gene class in line 18579
+invalid format of gene class in line 18633
+invalid format of gene class in line 18636
+invalid format of gene class in line 18638
+invalid format of gene class in line 18651
+invalid format of gene class in line 18693
+invalid format of gene class in line 18730
+invalid format of gene class in line 18765
+invalid format of gene class in line 18775
+invalid format of gene class in line 18780
+invalid format of gene class in line 18795
+invalid format of gene class in line 18802
+invalid format of gene class in line 18809
+invalid format of gene class in line 18810
+invalid format of gene class in line 18821
+invalid format of gene class in line 18822
+invalid format of gene class in line 18838
+invalid format of gene class in line 18842
+invalid format of gene class in line 18861
+invalid format of gene class in line 18877
+invalid format of gene class in line 18896
+invalid format of gene class in line 18909
+invalid format of gene class in line 18910
+invalid format of gene class in line 18967
+invalid format of gene class in line 19004
+invalid format of gene class in line 19065
+invalid format of gene class in line 19073
+invalid format of gene class in line 19091
+invalid format of gene class in line 19106
+invalid format of gene class in line 19109
+invalid format of gene class in line 19123
+invalid format of gene class in line 19134
+invalid format of gene class in line 19153
+invalid format of gene class in line 19165
+invalid format of gene class in line 19169
+invalid format of gene class in line 19188
+invalid format of gene class in line 19189
+invalid format of gene class in line 19199
+invalid format of gene class in line 19204
+invalid format of gene class in line 19246
+invalid format of gene class in line 19251
+invalid format of gene class in line 19260
+invalid format of gene class in line 19270
+invalid format of gene class in line 19328
+invalid format of gene class in line 19342
+invalid format of gene class in line 19380
+invalid format of gene class in line 19383
+invalid format of gene class in line 19389
+invalid format of gene class in line 19391
+invalid format of gene class in line 19414
+invalid format of gene class in line 19422
+invalid format of gene class in line 19458
+invalid format of gene class in line 19484
+invalid format of gene class in line 19488
+invalid format of gene class in line 19511
+invalid format of gene class in line 19513
+invalid format of gene class in line 19548
+invalid format of gene class in line 19601
+invalid format of gene class in line 19652
+invalid format of gene class in line 19653
+invalid format of gene class in line 19662
+invalid format of gene class in line 19675
+invalid format of gene class in line 19683
+invalid format of gene class in line 19753
+invalid format of gene class in line 19768
+invalid format of gene class in line 19796
+invalid format of gene class in line 19822
+invalid format of gene class in line 19826
+invalid format of gene class in line 19841
+invalid format of gene class in line 19880
+invalid format of gene class in line 19883
+invalid format of gene class in line 19884
+invalid format of gene class in line 19885
+invalid format of gene class in line 19915
+invalid format of gene class in line 19918
+invalid format of gene class in line 19928
+invalid format of gene class in line 19933
+invalid format of gene class in line 19948
+invalid format of gene class in line 19955
+invalid format of gene class in line 19967
+invalid format of gene class in line 19995
+invalid format of gene class in line 20003
+invalid format of gene class in line 20011
+invalid format of gene class in line 20031
+invalid format of gene class in line 20081
+invalid format of gene class in line 20089
+invalid format of gene class in line 20128
+invalid format of gene class in line 20134
+invalid format of gene class in line 20135
+invalid format of gene class in line 20155
+invalid format of gene class in line 20160
+invalid format of gene class in line 20181
+invalid format of gene class in line 20188
+invalid format of gene class in line 20191
+The number of genes which are in the input file but not in the characteristic file is 298
+Use of uninitialized value within %mtype_mbase in hash element at /data/itmll/yhan/DriverML_v1.0.5/reduction.pl line 266.
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells  94878  5.1     350000 18.7   235657 12.6
+Vcells 203185  1.6     786432  6.0   690025  5.3
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    117992    6.4     592000    31.7     592000    31.7
+Vcells 726339965 5541.6 3240482023 24723.0 3649161952 27840.9
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    180641    9.7     592000    31.7     592000    31.7
+Vcells 727211348 5548.2 2592385618 19778.4 3649161952 27840.9
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    182637    9.8     592000    31.7     592000    31.7
+Vcells 727236129 5548.4 2073908494 15822.7 3649161952 27840.9
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    182822    9.8     592000    31.7     592000    31.7
+Vcells 727281587 5548.8 2073908494 15822.7 3649161952 27840.9
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    182874    9.8     592000    31.7     592000    31.7
+Vcells 727298593 5548.9 2073908494 15822.7 3649161952 27840.9
+ [1] 1.1119029 0.9715070 1.0511081 1.1830234 1.0959873 1.0603961 1.0831951
+ [8] 1.0697963 1.0387563 0.9572351 0.9863031 1.0366762 1.0487524 1.0273827
+[15] 0.9911376 1.0461516 1.0571540 0.9665039 0.9426695 1.0079739 1.0691697
+[22] 1.0181281 1.0541144 1.0274202 1.0260951 1.0617493 0.9409554 0.7729538
+[29] 0.3541738
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    186336   10.0     592000    31.7     592000    31.7
+Vcells 727780517 5552.6 2073908494 15822.7 3649161952 27840.9
+            used   (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells    186436   10.0     592000    31.7     592000    31.7
+Vcells 730307569 5571.9 2073908494 15822.7 3649161952 27840.9
+          used (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells  186430 10.0     592000    31.7     592000    31.7
+Vcells 4278693 32.7 1659126795 12658.2 3649161952 27840.9
+          used (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells  184255  9.9     592000    31.7     592000    31.7
+Vcells 4209585 32.2 1327301436 10126.6 3649161952 27840.9
+          used (Mb) gc trigger   (Mb)   max used    (Mb)
+Ncells  184253  9.9     592000   31.7     592000    31.7
+Vcells 4211167 32.2 1061841148 8101.3 3649161952 27840.9
+          used (Mb) gc trigger   (Mb)   max used    (Mb)
+Ncells  185810 10.0     592000   31.7     592000    31.7
+Vcells 4336019 33.1  849472918 6481.0 3649161952 27840.9
+[1] 0.9140785
+          used (Mb) gc trigger   (Mb)   max used    (Mb)
+Ncells  185818 10.0     592000   31.7     592000    31.7
+Vcells 4336021 33.1  679578334 5184.8 3649161952 27840.9
+          used (Mb) gc trigger   (Mb)   max used    (Mb)
+Ncells  185822 10.0     592000   31.7     592000    31.7
+Vcells 4301910 32.9  543662667 4147.9 3649161952 27840.9
+          used (Mb) gc trigger   (Mb)   max used    (Mb)
+Ncells  191149 10.3     592000   31.7     592000    31.7
+Vcells 4257357 32.5  434930133 3318.3 3649161952 27840.9
+read 1read 2101_18_02_42_02_343490708
