@@ -7,8 +7,9 @@ Access
 DriverML is a free software tool.
 
 Installation
-tar -xzf DriverML_v1.0.0.tar.gz
-cd DriverML_v1.0.0
+unzip DriverML-master.zip
+cd DriverML-master
+unzip training.zip
 chmod +x *.pl *.r *.sh
 
 Running
