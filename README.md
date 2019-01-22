@@ -5,15 +5,15 @@ DriverML integrates the Rao’s score test and supervised machine learning to id
 DriverML is a free software tool.
 
 ## Installation
-tar –xzf DriverML_v1.0.0.tgz  
-cd DriverML_v1.0.0  
-tar -xzf training.tar.gz  
+unzip DriverML-master.zip  
+cd DriverML-master  
+unzip training.zip    
 chmod +x *.pl *.r *.sh
 
 ## Running
 Requirements: Perl and R are required on user’s Linux environment.  
 
-Usage: path/run.driverml.sh	-w <AbsolutePath/DriverML_v1.0.0> –i <AbsolutePath/mutation.maf> -f <AbsolutePath/reference file> -r <AbsolutePath/reference file> [options]  
+Usage: path/run.driverml.sh	-w <AbsolutePath/DriverML-master> –i <AbsolutePath/mutation.txt> -f <AbsolutePath/reference file for input data> -r <AbsolutePath/reference file for training data> [options]  
 
 Required arguments:  
 
