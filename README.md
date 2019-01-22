@@ -5,9 +5,9 @@ DriverML integrates the Rao’s score test and supervised machine learning to id
 DriverML is a free software tool.
 
 ## Installation
-tar –xzf DriverML_v1.0.0.tgz  
-cd DriverML_v1.0.0  
-tar -xzf training.tar.gz  
+unzip DriverML-master.zip  
+cd DriverML-master  
+unzip training.zip    
 chmod +x *.pl *.r *.sh
 
 ## Running
