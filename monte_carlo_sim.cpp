@@ -1,8 +1,4 @@
-﻿// monte_carlo_sim.cpp: 定义控制台应用程序的入口点。
-//
-
-//#include "stdafx.h"
-#include <iostream>
+﻿#include <iostream>
 #include <random>
 #include <vector>
 #include <fstream>
@@ -12,8 +8,6 @@
 #include <algorithm>
 #include <sstream>
 #include <cstring>
-//#include <utility>
-
 
 
 std::vector<size_t> rankSort(const std::vector<double>& v_temp) {
@@ -41,21 +35,9 @@ std::vector<size_t> rankSort(const std::vector<double>& v_temp) {
 
 int main(int argc, char **argv)
 {
-	
-
-	//读入 eta N LRT 权重
-	//输入模拟次数，核数
 	int thread_n, sim_n;
 	std::string eta_file, N_file, LRT_file, omega_file, date, file_n;
 
-	////---------------
-	//eta_file = "e:/document/R/driver genes/eta.txt";
-	//N_file = "e:/document/R/driver genes/N.txt";
-	//LRT_file = "e:/document/R/driver genes/lrt.txt";
-	//omega_file = "e:/document/R/driver genes/para.txt";
-	//thread_n = 1;
-	//sim_n = 10;
-	////---------------
 	std::istringstream argv_thread(argv[1]);
 	std::istringstream argv_sim(argv[2]);
 	std::istringstream argv_eta(argv[3]);
@@ -226,15 +208,8 @@ int main(int argc, char **argv)
 		abs_LRT[k] = std::abs(LRT[k][0]);
 	}
 
-
-	//std::vector<double> p(gene_n);
-	//std::vector<double> p_noN(gene_n);
-	//std::vector<double> p2sides(gene_n);
 	std::vector<double> p2sides_noN(gene_n);
 
-	//std::vector<double> p_adj(gene_n);
-	//std::vector<double> p_noN_adj(gene_n);
-	//std::vector<double> p2sides_adj(gene_n);
 	std::vector<double> p2sides_noN_adj(gene_n);
 
 	omp_set_num_threads(thread_n);
@@ -243,8 +218,6 @@ int main(int argc, char **argv)
 											 std::transform(omp_out.begin(), omp_out.end(), omp_in.begin(), omp_out.begin(), std::plus<double>())) \
                     initializer(omp_priv = omp_orig)
 
-	//#pragma omp parallel for reduction(vec_plus:p,p_noN,p2sides,p2sides_noN)
-	//#pragma omp parallel for reduction(vec_plus:p_noN,p2sides_noN)
 	#pragma omp parallel for reduction(vec_plus:p2sides_noN)
 	for (int k = 0; k < gene_n; k++)
 	{
@@ -252,52 +225,36 @@ int main(int argc, char **argv)
 		std::poisson_distribution<> rpois;
 		for (int t = 0; t < sim_n; t++)
 		{
-			//std::vector<double> numerator_help(type_n);
+			
 			double numerator = 0;
-			//double denominator = 0;
+			
 			double denominator_noN = 0;
 			for (int j = 0; j < type_n; j++)
 			{
 				double numerator_help = 0;
-				//double denominator_help = 0;
+				
 				double denominator_noN_help = 0;
 				for (int i = 0; i < sample_n; i++)
 				{
 					rpois = std::poisson_distribution<>(N[k][j] * eta[j][i]);
 					numerator_help += rpois(generator) / eta[j][i];
-					//denominator_help += N[k][j] / eta[j][i];
+					
 					denominator_noN_help += 1.0 / eta[j][i];
 				}
 				numerator_help -= sample_n * N[k][j];
 				numerator += omega[k][j] * numerator_help;
-				//denominator += omega[k][j] * omega[k][j] * denominator_help;
+				
 				denominator_noN += omega[k][j] * omega[k][j] * denominator_noN_help;
 			}
 			
-			//double monte_carlo_T = numerator / std::sqrt(denominator);
+			
 			double monte_carlo_T_noN = numerator / std::sqrt(denominator_noN);
-			//double abs_monte_carlo_T = std::abs(monte_carlo_T);
+			
 			double abs_monte_carlo_T_noN = std::abs(monte_carlo_T_noN);
 			
 			for (int pk = 0; pk < gene_n; pk++)
 			{
-				//double abs_LRT = std::abs(LRT[k][0]);
-				/*if (abs_monte_carlo_T >= abs_LRT)
-				{
-					p2sides[k]++;
-					if ((LRT[k][0] > 0 && monte_carlo_T > LRT[k][0]) || (LRT[k][0] < 0 && monte_carlo_T < LRT[k][0]))
-					{
-						p[k]++;
-					}
-				}*/
-				/*if (abs_monte_carlo_T_noN >= abs_LRT)
-				{
-					p2sides_noN[k]++;
-					if ((LRT[k][0] > 0 && monte_carlo_T_noN > LRT[k][0]) || (LRT[k][0] < 0 && monte_carlo_T_noN < LRT[k][0]))
-					{
-						p_noN[k]++;
-					}
-				}*/
+				
 				if (abs_monte_carlo_T_noN >= abs_LRT[pk])
 				{
 					p2sides_noN[pk]++;
@@ -305,64 +262,13 @@ int main(int argc, char **argv)
 			}
 		}
 		
-		/*if (t_accu == 20)
-		{
-			if (std::abs(monte_carlo_T) >= std::abs(LRT[k][0]))
-			{
-				p2sides[k]++;
-				if ((LRT[k][0] > 0 && monte_carlo_T > LRT[k][0]) || (LRT[k][0] < 0 && monte_carlo_T < LRT[k][0]))
-				{
-					p[k]++;
-				}
-			}
-			if (std::abs(monte_carlo_T_noN) >= std::abs(LRT[k][0]))
-			{
-				p2sides_noN[k]++;
-				if ((LRT[k][0] > 0 && monte_carlo_T_noN > LRT[k][0]) || (LRT[k][0] < 0 && monte_carlo_T_noN < LRT[k][0]))
-				{
-					p_noN[k]++;
-				}
-			}
-		}*/
+		
 	}
 
-	//#pragma omp parallel sections
-	//{
-	//	/*#pragma omp section
-	//	{
-	//		std::transform(p.cbegin(), p.cend(), p.begin(), [&sim_n, &gene_n](double value) {return value / (sim_n*gene_n); });
-	//		std::vector<size_t> p_rank = rankSort(p);
-	//		std::transform(p.cbegin(), p.cend(), p_rank.cbegin(), p_adj.begin(), [&gene_n](const double &p, const size_t &rank) {return p * gene_n / rank; });
-	//	}*/
-	//	#pragma omp section
-	//	{
-	//		std::transform(p_noN.cbegin(), p_noN.cend(), p_noN.begin(), [&sim_n, &gene_n](double value) {return value / (sim_n*gene_n); });
-	//		std::vector<size_t> p_noN_rank = rankSort(p_noN);
-	//		std::transform(p_noN.cbegin(), p_noN.cend(), p_noN_rank.cbegin(), p_noN_adj.begin(), [&gene_n](const double &p, const size_t &rank) {return p * gene_n / rank; });
-	//	}
-	//	/*#pragma omp section
-	//	{
-	//		std::transform(p2sides.cbegin(), p2sides.cend(), p2sides.begin(), [&sim_n, &gene_n](double value) {return value / (sim_n*gene_n); });
-	//		std::vector<size_t> p2sides_rank = rankSort(p2sides);
-	//		std::transform(p2sides.cbegin(), p2sides.cend(), p2sides_rank.cbegin(), p2sides_adj.begin(), [&gene_n](const double &p, const size_t &rank) {return p * gene_n / rank; });
-	//	}*/
-	//	#pragma omp section
-	//	{
-	//		std::transform(p2sides_noN.cbegin(), p2sides_noN.cend(), p2sides_noN.begin(), [&sim_n, &gene_n](double value) {return value / (sim_n*gene_n); });
-	//		std::vector<size_t> p2sides_noN_rank = rankSort(p2sides_noN);
-	//		std::transform(p2sides_noN.cbegin(), p2sides_noN.cend(), p2sides_noN_rank.cbegin(), p2sides_noN_adj.begin(), [&gene_n](const double &p, const size_t &rank) {return p * gene_n / rank; });
-	//	}
-	//}
 
 	std::transform(p2sides_noN.begin(), p2sides_noN.end(), p2sides_noN.begin(), [&sim_n, &gene_n](double value) {return value / (sim_n*gene_n); });
 	std::vector<size_t> p2sides_noN_rank = rankSort(p2sides_noN);
 	std::transform(p2sides_noN.cbegin(), p2sides_noN.cend(), p2sides_noN_rank.cbegin(), p2sides_noN_adj.begin(), [&gene_n](const double &p, const size_t &rank) {return p * gene_n / rank; });
-
-
-
-	//输出，写入文件p值
-	//char filename_p[100];
-	//snprintf(filename_p, 100, date, "qwe");
 	
 	std::ofstream ofile_p(date + "_" + file_n + "_p.tmp");
 
@@ -370,8 +276,6 @@ int main(int argc, char **argv)
 	{
 		for (size_t k = 0; k < gene_n; k++)
 		{
-			//ofile_p << p[k] << "\t" << p_noN[k] << "\t" << p2sides[k] << "\t" << p2sides_noN[k] << "\t" << p_adj[k] << "\t" << p_noN_adj[k] << "\t" << p2sides_adj[k] << "\t" << p2sides_noN_adj[k] << std::endl;
-			//ofile_p << p_noN[k] << "\t" << p2sides_noN[k] << "\t" << p_noN_adj[k] << "\t" << p2sides_noN_adj[k] << std::endl;
 			ofile_p << p2sides_noN[k] << "\t" << p2sides_noN_adj[k] << std::endl;
 		}
 		

@@ -162,40 +162,6 @@ awk -F "\t" '$3~/^[1-9]$|^[1-2][0-9]$|^X$|^Y$/ && $2!~/^ENSG/ && $2!~/^LOC/{prin
 
 $path/add-genes-to-characteristic.pl -i ${date}_input_file.tmp -d $date
 
-#Hugo_Symbol=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Hugo_Symbol" -n | awk -F ":" '{print $1}')
-#Chromosome=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Chromosome" -n | awk -F ":" '{print $1}')
-#Start_Position=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Start_Position" -n | awk -F ":" '{print $1}')
-#Variant_Classification=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Variant_Classification" -n | awk -F ":" '{print $1}')
-#Reference_Allele=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Reference_Allele" -n | awk -F ":" '{print $1}')
-#Tumor_Seq_Allele2=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Tumor_Seq_Allele2" -n | awk -F ":" '{print $1}')
-#Tumor_Sample_Barcode=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Tumor_Sample_Barcode" -n | awk -F ":" '{print $1}')
-#Variant_Type=$(awk -F "\t" 'NR==1{gsub(/\t/,"\n");print $0}' $training | grep "Variant_Type" -n | awk -F ":" '{print $1}')
-#
-#if [ -n "$Hugo_Symbol" ] && [ -n "$Chromosome" ] && [ -n "$Start_Position" ] && [ -n "$Variant_Classification" ] && [ -n "$Reference_Allele" ] && [ -n "$Tumor_Seq_Allele2" ] && [ -n "$Tumor_Sample_Barcode" ] && [ -n "$Variant_Type" ];then
-#
-#awk -F "\t" -v Hugo="$Hugo_Symbol" -v Chromo="$Chromosome" -v Start="$Start_Position" -v Variant="$Variant_Classification" -v Reference="$Reference_Allele" -v Tumor_Seq="$Tumor_Seq_Allele2" -v Tumor_Sample="$Tumor_Sample_Barcode" -v Variant_T="$Variant_Type" '{print $Hugo"\t"$Chromo"\t"$Start"\t"$Variant"\t"$Reference"\t"$Tumor_Seq"\t"$Tumor_Sample"\t"$Variant_T}' $training > ${date_pre}_input_1.tmp
-#else
-#echo "The format of mutation file is not acceptable. MAF format is required."
-#exit 0
-#fi
-#
-#awk -F "\t" -v row=1 'NR>=row && $4~/Frame_Shift_Del/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Frame_Shift_Del""\t"$8}NR>=row && $4~/Frame_Shift_Ins/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Frame_Shift_Ins""\t"$8}NR>=row && $4~/In_Frame_Del/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""In_Frame_Del""\t"$8}NR>=row && $4~/In_Frame_Ins/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""In_Frame_Ins""\t"$8}NR>=row && $4~/Missense_Mutation/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Missense_Mutation""\t"$8}NR>=row && $4~/Nonsense_Mutation/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Nonsense_Mutation""\t"$8}NR>=row && $4~/Nonstop_Mutation/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Nonstop_Mutation""\t"$8}NR>=row && $4~/Silent/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Silent""\t"$8}NR>=row && $4~/Splice_Site/ && $8~/SNP|DNP|TNP/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Splice_Site""\t"$8}NR>=row && $4~/Translation_Start_Site/ && $8~/SNP|DNP|TNP/{print $7"\t"$1"\t"$2"\t"$3"\t"$5"\t"$6"\t""Translation_Start_Site""\t"$8}' ${date_pre}_input_1.tmp > ${date_pre}_input_intermediate2_file.tmp
-#
-#awk -F "\t" '{gsub(/chr/,"",$3);print $0}' ${date_pre}_input_intermediate2_file.tmp > ${date_pre}_input_intermediate_file.tmp
-#
-#awk -F "\t" -v row=1 'NR>=row && $7~/Frame_Shift_Del|Frame_Shift_Ins|Frame_Shift_Indel/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""Fs_indel"}NR>=row && $7~/In_Frame_Del|In_Frame_Ins|In_Frame_Indel/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nFs_indel"}NR>=row && $7~/Missense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""missense"}NR>=row && $7~/Nonsense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nonsense"}NR>=row && $7~/Silent/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""silent"}NR>=row && $7~/Splice_Site/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""splicing"}' ${date_pre}_input_intermediate_file.tmp > ${date_pre}_input_intermediate_file_pre.tmp
-#
-#awk -F "\t" '$3~/^[1-9]$|^[1-2][0-9]$|^X$|^Y$/ && $2!~/^ENSG/ && $2!~/^LOC/{print $0}' ${date_pre}_input_intermediate_file_pre.tmp > ${date_pre}_input_file.tmp
-#
-#$path/add-genes-to-characteristic.pl -i ${date_pre}_input_file.tmp -d $date_pre
-
-##################################
-#awk -F "\t" -v row=1 'NR>=row && $7~/Frame_Shift_Del|Frame_Shift_Ins/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""Fs_indel"}NR>=row && $7~/In_Frame_Del|In_Frame_Ins/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nFs_indel"}NR>=row && $7~/Missense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""missense"}NR>=row && $7~/Nonsense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nonsense"}NR>=row && $7~/Silent/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""silent"}NR>=row && $7~/Splice_Site/ && $8~/SNP|DNP|TNP/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""splicing"}' $input_file > ${date}_input_intermediate_file.tmp
-
-#awk -F "\t" '$3~/^[1-9]$|^[1-2][0-9]$|^X$|^Y$/ && $2!~/^ENSG/ && $2!~/^LOC/{print $0}' ${date}_input_intermediate_file.tmp > ${date}_input_file.tmp
-
-#$path/add-genes-to-characteristic.pl -i ${date}_input_file.tmp -d $date
-
 awk -F "\t" -v row=1 'NR>=row && $7~/Frame_Shift_Del|Frame_Shift_Ins|Frame_Shift_Indel/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""Fs_indel"}NR>=row && $7~/In_Frame_Del|In_Frame_Ins|In_Frame_Indel/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nFs_indel"}NR>=row && $7~/Missense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""missense"}NR>=row && $7~/Nonsense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nonsense"}NR>=row && $7~/Silent/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""silent"}NR>=row && $7~/Splice_Site/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""splicing"}' $training > ${date_pre}_input_intermediate_file.tmp
 
 awk -F "\t" '$3~/^[1-9]$|^[1-2][0-9]$|^X$|^Y$/ && $2!~/^ENSG/ && $2!~/^LOC/{print $0}' ${date_pre}_input_intermediate_file.tmp > ${date_pre}_input_file.tmp
