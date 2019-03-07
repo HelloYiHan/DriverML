@@ -52,7 +52,7 @@ Eight required columns are as below:
 * Variant classification describes the translational effect of a variant allele. It is one of Silent, Missense_Mutation, Nonsense_Mutation, Splice_Site, Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, and In_Frame_Ins. Other mutation types will not be analyzed.  
 * Variant type is Type of mutation, such as SNP, DNP, TNP, INS, and DEL.  
 The mutation file needs to be Detailed information about the MAF format could be found at https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+%28MAF%29+Specification. An example file could be seen in /yourpath/DriverML_v1.0.0/example_data/UVM.txt.  
-* The ExInAtor described in the DriverML manuscript was designed for the discovery of driver lncRNA genes and could also be used on protein-coding genes using whole-genome mutation data. Since whole-exome sequencing data was used in the DriverML manuscript, the results of ExInAtor did not represent its normal performance. In fact, ExInAtor has high precision with whole-genome sequencing data.
+* ExInAtor is designed specially for the detection of driver lncRNA genes using ‘whole-genome sequencing’ mutation data, although it is also applicable to the identification of protein coding genes. Since the whole-exome mutation data was used in the DriverML manuscript, the results of ExInAtor in our manuscript do not represent its optimal performance.
 ## Output
 The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.  
 ## Example
