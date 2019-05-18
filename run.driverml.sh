@@ -208,7 +208,7 @@ echo "Final cluster number is $cluster_final"
 $path/cluster.r $interpolation_number $cluster_final ${date}
 $path/pre-drgap.pl -n $cluster_final -i ${date}_input_file.tmp -d $date
 
-g++ -fopenmp -o ${date}_monte_carlo.out.tmp $path/monte_carlo_sim.cpp
+g++ -std=c++11 -fopenmp -o ${date}_monte_carlo.out.tmp $path/monte_carlo_sim.cpp
 
 for p in $(seq 1 1)
 do
