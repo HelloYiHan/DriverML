@@ -9,7 +9,6 @@ use File::Spec;
 use File::Path;
 use File::Copy;
 use File::Basename;
-use Devel::Size qw(total_size);
 use Cwd;
 
 my ($input_mt,$exp_mt,$ref_genome);
