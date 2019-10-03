@@ -87,7 +87,7 @@ while true ; do
         -t|--simulation_time)
 		monte_carlo_times=$2 ; shift 2 ;;
         -r|--reference_training)
-		reference_training=$2 ; shift 2 ;; 
+		reference_training=$2 ; shift 2 ;;
 	-d|--indelratio)
 		indel_ratio=$2 ; shift 2 ;;
 	-n|--interpolation)
@@ -160,13 +160,13 @@ awk -F "\t" -v row=1 'NR>=row && $7~/Frame_Shift_Del|Frame_Shift_Ins/{print $1"\
 
 awk -F "\t" '$3~/^[1-9]$|^[1-2][0-9]$|^X$|^Y$/ && $2!~/^ENSG/ && $2!~/^LOC/{print $0}' ${date}_input_intermediate_file_pre.tmp > ${date}_input_file.tmp
 
-$path/add-genes-to-characteristic.pl -i ${date}_input_file.tmp -d $date
+$path/add-genes-to-characteristic.pl -i ${date}_input_file.tmp -d $date -p $path/
 
 awk -F "\t" -v row=1 'NR>=row && $7~/Frame_Shift_Del|Frame_Shift_Ins|Frame_Shift_Indel/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""Fs_indel"}NR>=row && $7~/In_Frame_Del|In_Frame_Ins|In_Frame_Indel/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nFs_indel"}NR>=row && $7~/Missense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""missense"}NR>=row && $7~/Nonsense_Mutation/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""nonsense"}NR>=row && $7~/Silent/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""silent"}NR>=row && $7~/Splice_Site/{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t""splicing"}' $training > ${date_pre}_input_intermediate_file.tmp
 
 awk -F "\t" '$3~/^[1-9]$|^[1-2][0-9]$|^X$|^Y$/ && $2!~/^ENSG/ && $2!~/^LOC/{print $0}' ${date_pre}_input_intermediate_file.tmp > ${date_pre}_input_file.tmp
 
-$path/add-genes-to-characteristic.pl -i ${date_pre}_input_file.tmp -d $date_pre
+$path/add-genes-to-characteristic.pl -i ${date_pre}_input_file.tmp -d $date_pre -p $path/
 
 # find the best parameter
 a=1
