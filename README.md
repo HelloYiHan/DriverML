@@ -61,6 +61,6 @@ nohup /AbsolutePath/DriverML-master/run.driverml.sh -w /AbsolutePath/DriverML-ma
 ## Citation
 Yi Han, Juze Yang, Xinyi Qian, Wei-Chung Cheng, Shu-Hsuan Liu, Xing Hua, Liyuan Zhou, Yaning Yang, Qingbiao Wu, Pengyuan Liu, Yan Lu, DriverML: a machine learning algorithm for identifying driver genes in cancer sequencing studies, Nucleic Acids Research, Volume 47, Issue 8, 07 May 2019, Page e45, https://doi.org/10.1093/nar/gkz096
 ## Contact
-If you have any questions, please do not hesitate to contact us.
-The email of the  developer is yihan@zju.edu.cn.
-If you use WeChat, please add me with the ID: hyperwell.如果你使用微信，请加我微信：hyperwell。
+* If you have any questions, please do not hesitate to contact us.
+* The email of the  developer is yihan@zju.edu.cn.
+* If you use WeChat, please add me with the ID: hyperwell. 如果你使用微信，请加我微信：hyperwell。
