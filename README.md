@@ -2,7 +2,7 @@
 DriverML integrates the Rao’s score test and supervised machine learning to identify cancer driver genes. Rigorous and unbiased benchmark analysis and comparisons of DriverML with 20 other existing tools in 31 independent datasets from The Cancer Genome Atlas (TCGA) show that DriverML is robust and powerful among various datasets and outperforms the other tools with a better balance of precision and recall. 
 
 ## Access
-DriverML is a free software tool.
+DriverML is free for non-commerical use only.
 
 ## Installation
 unzip DriverML-master.zip  
@@ -64,3 +64,5 @@ Yi Han, Juze Yang, Xinyi Qian, Wei-Chung Cheng, Shu-Hsuan Liu, Xing Hua, Liyuan 
 If you have any questions, please do not hesitate to contact us.
 * The email of the  developer is yihan@zju.edu.cn & 250147506@qq.com.
 * If you use WeChat, please add me with the ID: hyperwell. 如果你使用微信，请加我微信：hyperwell。
+## Last update
+Wednesday December 04, 2019
