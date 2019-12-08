@@ -7,7 +7,7 @@ DriverML is free for non-commerical use only.
 ## Installation
 unzip DriverML-master.zip  
 cd DriverML-master  
-unzip training.zip    
+tar jxvf training.tar.bz2
 chmod +x *.pl *.r *.sh
 
 ## Running
