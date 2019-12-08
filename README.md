@@ -7,7 +7,7 @@ DriverML is free for non-commerical use only.
 ## Installation
 unzip DriverML-master.zip  
 cd DriverML-master  
-tar jxvf training.tar.bz2
+tar jxvf training.tar.bz2  
 chmod +x *.pl *.r *.sh
 
 ## Running
@@ -65,4 +65,4 @@ If you have any questions, please do not hesitate to contact us.
 * The email of the  developer is yihan@zju.edu.cn & 250147506@qq.com.
 * If you use WeChat, please add me with the ID: hyperwell. 如果你使用微信，请加我微信：hyperwell。
 ## Last update
-Wednesday December 04, 2019
+Monday December 09, 2019
