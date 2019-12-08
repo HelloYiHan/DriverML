@@ -21,22 +21,22 @@ Required arguments:
 |:---------------|:-----------------------------------------------|
 | -w/--path	     |       The absolute path to the DriverML_v1.0.0. |
 | -i/--input	   |     The list of tumor mutations to be analyzed.|  
-|-f/--reference_genome|	The reference genome for input data.|
-|-r/--reference_training	|The human reference genome file for training data.|  
+|-f/--reference_genome|	The reference genome for input(-i) data.|
+|-r/--reference_training	|The human reference genome file for training data. Deafuat: hg19 reference file.|  
 
 Options:  
 
 | Alias| Description |
 |:---------------|:-----------------------------------------------|
-|-g/--mutation_table|	The predefined gene mutation table which could be found in the package of this application. Default: GRCh38|
+|-g/--mutation_table|	The predefined gene mutation table which could be found in the package of this application. It could be either hg19_refGene.exp or hg38_refGene.exp according to -i input file. Default: hg38_refGene.exp|
 |-y/--tumor_type|	Training mutation data.Default: Pan-cancer|
 |-m/--multicore	|Set the number of parallel instances to be run concurrently. Default: 4|
-|-t/--simulation_time|	Set the number for Monte Carlo Simulation. Default: 10,000.|
+|-t/--simulation_time|	Set the number for Monte Carlo Simulation. Default: 2500.|
 |-o/--output|	Set the prefix of the output file. Default: summary.|
-|-c/--cluster_number|	Set the upper limit of cluster number for computing BMR.|
+|-c/--cluster_number|	Set the upper limit of cluster number for computing BMR. Default: 1|
 |-p/--prior|	Set the prior information. Default: Non-TCGA genes from DriverDB and IntOGen databases.|
-|-n/--interpolation_number| Set the upper limit of interpolation number for making gene clusters. Default: 100.|
-|-d/--indel_ratio	|The ratio of point mutation to indel in the background. Default: 0.05.|
+|-n/--interpolation_number| Set the upper limit of interpolation number for making gene clusters. Default: 100|
+|-d/--indel_ratio	|The ratio of point mutation to indel in the background. Default: 0.05|
 |-h/--help|	Help information.|
 |-v/--version|	Software version.|
 
@@ -57,7 +57,7 @@ The mutation file needs to be Detailed information about the MAF format could be
 ## Output
 The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.  
 ## Example
-nohup /AbsolutePath/DriverML-master/run.driverml.sh -w /AbsolutePath/DriverML-master -i example/UVM.txt -f /AbsolutePath/GRCh38.fa -r /AbsolutePath/hg19.fa -c 1 -o UVM-summary.txt > UVM-nohup.out
+nohup /AbsolutePath/DriverML-master/run.driverml.sh -w /AbsolutePath/DriverML-master -i example/UVM.txt -f /AbsolutePath/GRCh38.fa -r /AbsolutePath/hg19.fa -m 10 -o UVM-summary.txt > UVM-nohup.out
 ## Citation
 Yi Han, Juze Yang, Xinyi Qian, Wei-Chung Cheng, Shu-Hsuan Liu, Xing Hua, Liyuan Zhou, Yaning Yang, Qingbiao Wu, Pengyuan Liu, Yan Lu, DriverML: a machine learning algorithm for identifying driver genes in cancer sequencing studies, Nucleic Acids Research, Volume 47, Issue 8, 07 May 2019, Page e45, https://doi.org/10.1093/nar/gkz096
 ## Contact
