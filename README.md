@@ -20,9 +20,9 @@ Required arguments:
 | Alias| Description |
 |:---------------|:-----------------------------------------------|
 | -w/--path	     |       The absolute path to the DriverML_v1.0.0. |
-| -i/--input	   |     The list of tumor mutations to be analyzed.|  
+| -i/--input	   |     The list of tumor mutations to be analyzed. It should be put in the DriverML-Master/ directory.|  
 |-f/--reference_genome|	The reference genome for input(-i) data.|
-|-r/--reference_training	|The human reference genome file for training data. Deafuat: hg19 reference file.|  
+|-r/--reference_training	|The human reference genome file for training data. Deafuat: hg19 reference file|  
 
 Options:  
 
@@ -31,7 +31,7 @@ Options:
 |-g/--mutation_table|	The predefined gene mutation table which could be found in the package of this application. It could be either hg19_refGene.exp or hg38_refGene.exp according to -i input file. Default: hg38_refGene.exp|
 |-y/--tumor_type|	Training mutation data.Default: Pan-cancer|
 |-m/--multicore	|Set the number of parallel instances to be run concurrently. Default: 4|
-|-t/--simulation_time|	Set the number for Monte Carlo Simulation. Default: 2500.|
+|-t/--simulation_time|	Set the number for Monte Carlo Simulation. Default: 2500|
 |-o/--output|	Set the prefix of the output file. Default: summary.|
 |-c/--cluster_number|	Set the upper limit of cluster number for computing BMR. Default: 1|
 |-p/--prior|	Set the prior information. Default: Non-TCGA genes from DriverDB and IntOGen databases.|
