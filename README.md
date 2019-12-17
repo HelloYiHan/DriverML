@@ -55,7 +55,9 @@ The mutation file needs to be Detailed information about the MAF format could be
 * If the tumor allele2 is not mutated, it should be replaced by the tumor allele1.
 * ExInAtor is designed specially for the detection of driver lncRNA genes using ‘whole-genome sequencing’ mutation data, although it is also applicable to the identification of protein coding genes. Since the whole-exome mutation data was used in the DriverML manuscript, the results of ExInAtor in our manuscript do not represent its optimal performance.
 ## Output
-The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.  
+The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.    
+## Interpretation of the Output
+There are 11 columns in the output file. The first column is the gene symbol. The second to eighth columns are numbers of mutations. The ninth column(LRT) is values of the statistics. The tenth and eleventh columns are the P-values and adjusted P-values(Benjamini-Hochberg Procedure). The bigger the statistics, the more likely that gene is a driver. You could refer to the adjusted P-values for possibilities. The negative values of LRT represent they are not likely to be drivers and you could ignore them.
 ## Example
 nohup /AbsolutePath/DriverML-master/run.driverml.sh -w /AbsolutePath/DriverML-master -i example/UVM.txt -f /AbsolutePath/GRCh38.fa -r /AbsolutePath/hg19.fa -m 10 -o UVM-summary.txt > UVM-nohup.out
 ## Citation
@@ -65,4 +67,4 @@ If you have any questions, please do not hesitate to contact us.
 * The email of the  developer is yihan@zju.edu.cn & 250147506@qq.com.
 * If you use WeChat, please add me with the ID: hyperwell. 如果你使用微信，请加我微信：hyperwell。
 ## Last update
-Monday December 09, 2019
+Tuesday December 12, 2019
