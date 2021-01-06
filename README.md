@@ -55,7 +55,7 @@ The mutation file needs to be Detailed information about the MAF format could be
 * If the tumor allele2 is not mutated, it should be replaced by the tumor allele1.
 
 ## Computational results in our manuscript
-**ExInAtor is designed specially for the detection of driver lncRNA genes using ‘whole-genome sequencing’ mutation data, although it is also applicable to the identification of protein coding genes. Since the whole-exome mutation data was used in the DriverML manuscript, the results of ExInAtor in our manuscript do not represent its optimal performance.**
+**ExInAtor is a good software and designed specially for the detection of driver lncRNA genes using ‘whole-genome sequencing’ mutation data, although it is also applicable to the identification of protein coding genes. Since the whole-exome mutation data was used in the DriverML manuscript, the results of ExInAtor in our manuscript do not represent its optimal performance.**
 
 ## Output
 The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.    
