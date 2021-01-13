@@ -53,7 +53,12 @@ Eight required columns are as below:
 * Variant type is Type of mutation, such as SNP, DNP, TNP, INS, and DEL.  
 The mutation file needs to be Detailed information about the MAF format could be found at https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+%28MAF%29+Specification. An example file could be seen in /yourpath/DriverML_v1.0.0/example_data/UVM.txt.  
 * If the tumor allele2 is not mutated, it should be replaced by the tumor allele1.
-* ExInAtor is designed specially for the detection of driver lncRNA genes using ‘whole-genome sequencing’ mutation data, although it is also applicable to the identification of protein coding genes. Since the whole-exome mutation data was used in the DriverML manuscript, the results of ExInAtor in our manuscript do not represent its optimal performance.
+
+DriverML was developed on a compute cluster with 2T memory. The actual memory usage depends on the size of the dataset. A new version of DriverML is being developed now which requires much less memory.
+
+## ExInAtor results in our manuscript
+**ExInAtor was designed for the detection of driver genes (principally lncRNAs, but also protein-coding genes) using whole-genome sequencing (WGS) mutation data. According to a recent discussion with the developer of ExInAtor, it is worth noting that the result of ExInAtor in the DriverML paper didn’t represent its optimal performance , due to the use of whole-exome sequencing (WES) mutation data.**
+
 ## Output
 The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value.    
 ## Interpretation of the Output
@@ -67,4 +72,4 @@ If you have any questions, please do not hesitate to contact us.
 * The email of the  developer is yihan@zju.edu.cn & 250147506@qq.com.
 * If you use WeChat, please add me with the ID: hyperwell. 如果你使用微信，请加我微信：hyperwell。
 ## Last update
-Tuesday December 12, 2019
+Wednesday January 6, 2021
