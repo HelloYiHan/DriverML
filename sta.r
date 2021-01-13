@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript
+#Note: the significant p-value was obtained from simulation instead of the standard normal
 rm(list = ls())
 gc()
 args<-commandArgs(TRUE)
@@ -26,11 +27,6 @@ fun_LRTnew_den <- function(eta)
   logL <- sum(1 / eta)
   return(logL)
 }
-#fun_LRTnew_den <- function(N,eta)
-#{
-#  logL <- sum(N / eta)
-#  return(logL)
-#}
 #######################################################################
 #pre date_pre=pre_${date}
 date<-paste("pre",date,sep="_")
@@ -136,7 +132,6 @@ for (k in which(label!=0)){
     for (j in 1:nTypeTest){
       s[1]<-s[1]+w[j]*fun_LRTnew_num(obsData$n[k, j, ],N[k,j],etaEstimate[j, ])
       s[2]<-s[2]+w[j]^2*fun_LRTnew_den(etaEstimate[j, ])
-#      s[2]<-s[2]+w[j]^2*fun_LRTnew_den(N[k,j],etaEstimate[j, ])
     }
     s[3]<-s[3]+s[1]/sqrt(s[2])
     return(-s[3])
