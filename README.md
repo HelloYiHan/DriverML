@@ -70,6 +70,6 @@ Yi Han, Juze Yang, Xinyi Qian, Wei-Chung Cheng, Shu-Hsuan Liu, Xing Hua, Liyuan 
 ## Contact
 If you have any questions, please do not hesitate to contact us.
 * The email of the  developer is yihan@zju.edu.cn & 250147506@qq.com.
-* If you use WeChat, please add me with the ID: hyperwell. 如果你使用微信，请加我微信：hyperwell。
+
 ## Last update
-Friday January 15, 2021
+Friday January 29, 2021
