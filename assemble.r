@@ -12,7 +12,7 @@ outSummary_all<-read.table(out_file_1,header = TRUE,sep = '\t')
 cat("read 1")
 p_file_name<-paste(date,'_1_p.tmp',sep='')
 
-pvalues<-read.table(p_file_name,header=F,sep='\t',col.names=c('p_no_N_2s','p_no_N_2s_adj'))
+pvalues<-read.table(p_file_name,header=F,sep='\t',col.names=c('p','p_adj'))
 
 cat("read 2")
 out_with_p<-data.frame(outSummary_all,pvalues)
@@ -28,7 +28,7 @@ for(f in 1:number){
   p_file<-paste(date,f,sep='_')
   p_file_name<-paste(p_file,'_p.tmp',sep='')
 
-  pfile<-read.table(p_file_name,header=F,sep='\t',col.names=c('p_no_N_2s','p_no_N_2s_adj'))
+  pfile<-read.table(p_file_name,header=F,sep='\t',col.names=c('p','p_adj'))
 
 
   out_with_p_loop<-data.frame(file,pfile)
@@ -37,7 +37,7 @@ for(f in 1:number){
 
 out_with_p<-out_with_p[-1,]
 
-write.table(out_with_p[order(out_with_p$p_no_N_2s),],name,row.names=F,quote=F,sep='\t')
+write.table(out_with_p[order(out_with_p$p),],name,row.names=F,quote=F,sep='\t')
 
 }
 if(number>1){
@@ -52,14 +52,14 @@ for(f in 1:number){
   p_file<-paste(date,f,sep='_')
   p_file_name<-paste(p_file,'_p.tmp',sep='')
 
-  pfile<-read.table(p_file_name,header=F,sep='\t',col.names=c('p_no_N_2s','p_no_N_2s_adj'))
+  pfile<-read.table(p_file_name,header=F,sep='\t',col.names=c('p','p_adj'))
 
   out_with_p_loop<-data.frame(file,pfile)
   out_with_p_every<-rbind(out_with_p,out_with_p_loop)
   out_with_p_every<-out_with_p_every[-1,]
   name<-as.character(args[3])
   name<-paste(f,name,sep="_")
-  write.table(out_with_p_every[order(out_with_p_every$p_no_N_2s),],name,row.names=F,quote=F,sep='\t')
+  write.table(out_with_p_every[order(out_with_p_every$p),],name,row.names=F,quote=F,sep='\t')
 
 }
 

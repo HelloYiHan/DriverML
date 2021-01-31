@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-#Note: the significant p-value was obtained from simulation instead of the standard normal
+
 rm(list = ls())
 gc()
 args<-commandArgs(TRUE)
