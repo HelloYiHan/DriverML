@@ -56,7 +56,7 @@ The mutation file needs to be Detailed information about the MAF format could be
 
 DriverML was developed on a compute cluster with 2T memory. The pan-cancer mutation dataset (default) requires much more memory than cancer-specific datasets in the training process. The actual memory usage also depends on the size of the input dataset. Most of the running errors are due to insufficiency of memory.
 ## ExInAtor results in our manuscript
-**ExInAtor was designed for the detection of driver genes (principally lncRNAs, but also protein-coding genes) using whole-genome sequencing (WGS) mutation data. According to a recent discussion with the developer of ExInAtor, it is worth noting that the result of ExInAtor in the DriverML paper didn’t represent its optimal performance , due to the use of whole-exome sequencing (WES) mutation data.**
+**ExInAtor was designed for the detection of driver genes (principally lncRNAs, but also protein-coding genes) using whole-genome sequencing (WGS) mutation data. According to a recent discussion with the developer of ExInAtor, it is worth noting that the result of ExInAtor in the DriverML paper didn’t represent its optimal performance, due to the use of whole-exome sequencing (WES) mutation data. If anyone want to know the optimal performance of ExInAtor, please refer to the ExInAtor manuscript.**
 
 ## Output
 The output of DriverML is a summary of putative driver genes, including the numbers of each mutation type, the value of the statistic, p-value, and FDR adjusted p-value. The genes with negative LRT values (the statistic values) shoule be ignored.
