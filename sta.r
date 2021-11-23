@@ -3,7 +3,6 @@
 rm(list = ls())
 gc()
 args<-commandArgs(TRUE)
-#***************************parameter setting*************************#
 sample_num<-as.numeric(args[1])
 core_number<-as.numeric(args[2])
 monte_t<-as.numeric(args[3])
@@ -16,18 +15,6 @@ if(is.na(core_number))core_number<-10
 if(is.na(monte_t))monte_t<-10000
 if(is.na(geneRatio))geneRatio<-1
 if(is.na(indelRatio))indelRatio<-0.05
-#*********************************************************************#
-fun_LRTnew_num <- function(n,N,eta)
-{
-  logL <- sum(-N + (n / eta))
-  return(logL)
-}
-fun_LRTnew_den <- function(eta)
-{
-  logL <- sum(1 / eta)
-  return(logL)
-}
-#######################################################################
 #pre date_pre=pre_${date}
 date<-paste("pre",date,sep="_")
 sample_num<-1
@@ -61,6 +48,16 @@ if(ifIndel){
 el'))
 }else{
   arrGeneTableExp <- as.matrix(geneTableExp)
+}
+fun_LRTnew_num <- function(n,N,eta)
+{
+  logL <- sum(-N + (n / eta))
+  return(logL)
+}
+fun_LRTnew_den <- function(eta)
+{
+  logL <- sum(1 / eta)
+  return(logL)
 }
 arrGeneTableObs <- array(as.matrix(geneTableObs), dim = c(nGene, nType, nPeople))
 rm(geneTableObs)
@@ -105,10 +102,8 @@ gc()
 nTypeTest <- nType - 9
 gene_name <- row.names(geneTableExp)
 gene_name <- as.character(gene_name)
-#***************************************#
 census <- read.table(prior,header=F,sep='\t')
 census <- census[,1]
-#***************************************#
 census <- as.character(census)
 label<-rep(0,time=length(gene_name))
 for (i in 1:length(gene_name)) {
@@ -121,7 +116,6 @@ for (i in 1:length(gene_name)) {
 pre_gene_name<-gene_name
 rm(census,gene_name)
 gc()
-#******************************************************************#
 a<-rep(1,time=nTypeTest)
 para_tmp<-array(NA,c(nGene,nTypeTest))
 para_tmp2<-array(NA,c(1,nTypeTest))
@@ -156,8 +150,6 @@ pre_para_mean<-para_mean
 print(pre_para_mean)
 rm(para,para_tmp,para_tmp2,para_mean,label,para_all)
 gc()
-
-######################################################################
 date<-as.character(args[7])
 sample_num<-as.numeric(args[1])
 date_pre <- paste(date,"_",sep = "")
@@ -246,8 +238,6 @@ for (k in 1:nGene){
 		para_all[k,]<-pre_para_mean
 	}
 }
-##############################################################
-#**the code will be used when there is no overlap between a subclass and Prior *********
 if (is.na(sum(para_all))){
   for (k in 1:nGene){
     para_all[k,]<-c(rep(1,9),rep(7,9),rep(5,9),7,3)
@@ -260,7 +250,6 @@ para_file_name<-paste(para_file,"para.tmp",sep="_")
 
 write.table(para_all,para_file_name,quote = F,sep = "\t",row.names = F,col.names = F)
 
-#*******************************************************************************************#
 LRT <- pValueLRT <- array(NA, c(nGene, nTypeTest))
 denominator_help <- array(NA,c(nGene, nTypeTest))
 dimnames(denominator_help) <- dimnames(N)
@@ -287,7 +276,6 @@ for(k in 1:nGene)
     LRT[k, j] <- fun_LRTnew_num(obsData$n[k, j, ],N[k,j],etaEstimate[j, ]) * para_all[k,j] / denominator_ok[k]
   }
 }
-#----------------------------------------------------------------------------
 epsilon<-eps_test*sum(LRT<0)/length(LRT)
 print(epsilon)
 etaEstimate<-etaEstimate*(1+epsilon)
@@ -318,7 +306,6 @@ for(k in 1:nGene)
     LRT[k, j] <- fun_LRTnew_num(obsData$n[k, j, ],N[k,j],etaEstimate[j, ]) * para_all[k,j] / denominator_ok[k]
   }
 }
-#--------------------------------------------------------------------------
 eta_file<-paste(date_pre,sample_num,sep="")
 eta_file_name<-paste(eta_file,"eta.tmp",sep="_")
 
